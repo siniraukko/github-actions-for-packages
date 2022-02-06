@@ -4,19 +4,18 @@ name: Docker CD
 
 on:
   push:
-    paths:
-    - "**Dockerfile**"
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    
     steps:
     - uses: actions/checkout@v1
     - name: npm install and build webpack
       run: |
         npm install
         npm run build
-    - uses: actions/upload-artifact@main
+    - uses: actions/upload-artifact@master
       with:
         name: webpack artifacts
         path: public/
@@ -35,7 +34,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - uses: actions/download-artifact@main
+    - uses: actions/download-artifact@master
       with:
         name: webpack artifacts
         path: public
