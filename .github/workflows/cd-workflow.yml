@@ -59,7 +59,7 @@ jobs:
         name: webpack artifacts
         path: public
     - name: Publish in heroku
-    - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+      uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
       with:
         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
         heroku_app_name: "new-tricks" #Must be unique in Heroku
